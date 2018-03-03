@@ -55,7 +55,7 @@ public class ProcessarFormulario extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.println("<html><head><title>Resposta</title></head>");
 		out.println("<body><h1>Seu nome completo é: "+ nomeCompleto + "</h1>");
-		out.println("<h2>Sua idade é: " + idade + "</h2>");
+		out.println("<h2>Idade: " + idade + "</h2>");
 		out.println("</body></html>");
 	}
 

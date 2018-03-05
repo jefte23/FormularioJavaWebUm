@@ -44,18 +44,20 @@ public class ProcessarFormulario extends HttpServlet {
 		// Converte String para Data
 		LocalDate date = LocalDate.parse(data,formatter);
 		
-		int idade = Period.between(date, LocalDate.now()).getYears();
-			
-		System.out.println(idade);
+		// int idade = Period.between(date, LocalDate.now()).getYears();
 		
+		// A classe Period.between calcula o valor de Ano, Mes e dia do perido desejado
+		Period idade = Period.between(date, LocalDate.now());
+			
 		// Concatenar as strings
 		String nomeCompleto = nome + " " + sobrenome;
 		
-		// preparar a resposta ao usu�rio
+		// preparar a resposta ao usuário
 		PrintWriter out = response.getWriter();
 		out.println("<html><head><title>Resposta</title></head>");
-		out.println("<body><h1>Seu nome completo �: "+ nomeCompleto + "</h1>");
-		out.println("<h2>Idade: " + idade + "</h2>");
+		out.println("<body><h1>Seu nome completo é: "+ nomeCompleto + "</h1>");
+		// Com a função getYers (fução da classe Period) ele retorna apenas a idade que foi calculada em Period.betwenn
+		out.println("<h2>Idade: " + idade.getYears() + "</h2>");
 		out.println("</body></html>");
 	}
 
